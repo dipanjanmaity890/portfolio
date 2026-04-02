@@ -447,6 +447,7 @@ section {
   transform: rotate(calc(var(--angle) + var(--logo-rotation))) translateX(calc(var(--orbit-size) * 0.5));
   transition: transform 0.12s linear;
   z-index: 3;
+  text-decoration: none;
 }
 
 .orbit-badge {
@@ -473,6 +474,43 @@ section {
   font-size: 0.92rem;
   font-weight: 700;
   letter-spacing: 0;
+}
+
+.orbit-badge-logo {
+  width: 72%;
+  height: 72%;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+.orbit-badge-logo--small {
+  width: 62%;
+  height: 62%;
+}
+
+.orbit-badge-logo--wide {
+  width: 82%;
+  height: 58%;
+}
+
+.orbit-badge-svg {
+  width: 68%;
+  height: 68%;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+.orbit-badge-svg--linkedin {
+  color: #ffffff;
+}
+
+.orbit-badge-svg--vscode {
+  width: 70%;
+  height: 70%;
+  color: #007acc;
 }
 
 .orbit-caption {
