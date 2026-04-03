@@ -34,6 +34,16 @@ body {
   font-family: var(--sans);
   overflow-x: hidden;
   line-height: 1.6;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+img,
+a,
+button,
+input,
+textarea {
+  -webkit-user-drag: none;
 }
 
 body::before {
@@ -554,8 +564,15 @@ section {
 }
 
 .orbit-badge-logo--wide {
-  width: 82%;
-  height: 58%;
+  width: 88%;
+  height: 64%;
+}
+
+.orbit-badge-logo--vscode {
+  width: 74%;
+  height: 74%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .orbit-badge-svg {
@@ -568,12 +585,6 @@ section {
 
 .orbit-badge-svg--linkedin {
   color: #ffffff;
-}
-
-.orbit-badge-svg--vscode {
-  width: 70%;
-  height: 70%;
-  color: #007acc;
 }
 
 .orbit-caption {
