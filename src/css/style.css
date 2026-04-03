@@ -295,6 +295,69 @@ section {
   animation: scrollpulse 2s infinite;
 }
 
+.subpage-hero {
+  min-height: 44vh;
+  padding: 10rem 4rem 2rem;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.subpage-title {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 800;
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+.subpage-copy {
+  max-width: 48rem;
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  color: var(--text2);
+  line-height: 1.9;
+}
+
+.subpage-section {
+  min-height: auto;
+}
+
+.page-preview {
+  padding: 3rem 4rem 7rem;
+}
+
+.page-preview-card {
+  background: linear-gradient(180deg, rgba(22,29,39,0.92), rgba(13,17,23,0.92));
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-preview-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2), transparent);
+}
+
+.page-preview-copy {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  color: var(--text2);
+  line-height: 1.9;
+  max-width: 42rem;
+}
+
+.page-preview-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
 @keyframes scrollpulse {
   0%,
   100% {
@@ -1101,6 +1164,15 @@ footer .footer-status {
   .education,
   .contact {
     padding: 5rem 1.5rem;
+  }
+
+  .subpage-hero,
+  .page-preview {
+    padding: 6rem 1.5rem 2rem;
+  }
+
+  .page-preview {
+    padding-bottom: 5rem;
   }
 
   .orbit-section {

@@ -11,13 +11,13 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo"><span>~/</span>dev.portfolio</div>
+  <a class="nav-logo" href="./index.html"><span>~/</span>dev.portfolio</a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="./about.html">About</a></li>
+    <li><a href="./skills.html">Skills</a></li>
+    <li><a href="./projects.html">Projects</a></li>
+    <li><a href="./education.html">Education</a></li>
+    <li><a href="./contact.html">Contact</a></li>
   </ul>
 </nav>
 
@@ -36,8 +36,8 @@
     clean APIs, and interfaces that actually make sense.
   </p>
   <div class="hero-cta fade-in delay-3">
-    <a href="#projects" class="btn-primary">View Projects</a>
-    <a href="#contact" class="btn-outline">Get in Touch</a>
+    <a href="./projects.html" class="btn-primary">View Projects</a>
+    <a href="./contact.html" class="btn-outline">Get in Touch</a>
   </div>
   <div class="hero-stats fade-in delay-4">
     <div class="hero-stat">
@@ -124,269 +124,21 @@
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about-text">
+<section class="page-preview">
+  <div class="page-preview-card">
     <div class="sec-header">
-      <div class="sec-num">02 — About</div>
-      <h2 class="sec-title">Who I Am</h2>
+      <div class="sec-num">02 — Explore</div>
+      <h2 class="sec-title">Browse The Portfolio By Page</h2>
     </div>
-    <p>
-      I'm a <strong>full-stack developer</strong> who loves solving complex problems with elegant code. My approach combines deep technical knowledge with a genuine care for user experience — because great software should be both powerful and intuitive.
+    <p class="page-preview-copy">
+      The navigation now opens dedicated pages for About, Skills, Projects, Education, and Contact. Use the links below or the top nav to move between real routes instead of scrolling within a single page.
     </p>
-    <p>
-      When I'm not pushing commits, I explore new frameworks, contribute to open-source, and occasionally convince myself that <strong>one more refactor</strong> will make everything perfect.
-    </p>
-    <p>
-      I believe in writing code that humans can read, systems that can scale, and software that earns its complexity.
-    </p>
-  </div>
-  <div class="about-card">
-    <div class="about-card-row">
-      <span class="about-card-key">Name</span>
-      <span class="about-card-val">Your Name</span>
-    </div>
-    <div class="about-card-row">
-      <span class="about-card-key">Role</span>
-      <span class="about-card-val">Full-Stack Developer</span>
-    </div>
-    <div class="about-card-row">
-      <span class="about-card-key">Location</span>
-      <span class="about-card-val">Bengaluru, India</span>
-    </div>
-    <div class="about-card-row">
-      <span class="about-card-key">Focus</span>
-      <span class="about-card-val">Web & Systems</span>
-    </div>
-    <div class="about-card-row">
-      <span class="about-card-key">Status</span>
-      <span class="about-card-val" style="color: var(--accent2);">Open to work</span>
-    </div>
-    <div class="about-card-row">
-      <span class="about-card-key">Email</span>
-      <span class="about-card-val" style="color: var(--accent);">you@email.com</span>
+    <div class="page-preview-links">
+      <a class="btn-primary" href="./about.html">Open About</a>
+      <a class="btn-outline" href="./projects.html">Open Projects</a>
+      <a class="btn-outline" href="./contact.html">Open Contact</a>
     </div>
   </div>
-</section>
-
-<!-- SKILLS -->
-<section class="skills" id="skills">
-    <div class="sec-header">
-      <div class="sec-num">03 — Skills</div>
-      <h2 class="sec-title">Tech Stack</h2>
-    </div>
-
-  <div class="skills-grid">
-    <div class="skill-group">
-      <span class="skill-group-icon">⬡</span>
-      <div class="skill-group-title">Frontend</div>
-      <div class="skill-tags">
-        <span class="skill-tag">React</span>
-        <span class="skill-tag">TypeScript</span>
-        <span class="skill-tag">Next.js</span>
-        <span class="skill-tag">CSS / Tailwind</span>
-        <span class="skill-tag">Vue</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <span class="skill-group-icon">◈</span>
-      <div class="skill-group-title">Backend</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Node.js</span>
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">Express</span>
-        <span class="skill-tag">FastAPI</span>
-        <span class="skill-tag">REST / GraphQL</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <span class="skill-group-icon">▣</span>
-      <div class="skill-group-title">Databases</div>
-      <div class="skill-tags">
-        <span class="skill-tag">PostgreSQL</span>
-        <span class="skill-tag">MongoDB</span>
-        <span class="skill-tag">Redis</span>
-        <span class="skill-tag">Prisma</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <span class="skill-group-icon">◉</span>
-      <div class="skill-group-title">DevOps & Tools</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Docker</span>
-        <span class="skill-tag">Git</span>
-        <span class="skill-tag">AWS</span>
-        <span class="skill-tag">CI/CD</span>
-        <span class="skill-tag">Linux</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="skill-bar-section">
-    <div>
-      <div class="skill-bar-item">
-        <div class="skill-bar-head"><span>JavaScript / TypeScript</span><span>92%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:92%"></div></div>
-      </div>
-      <div class="skill-bar-item">
-        <div class="skill-bar-head"><span>React / Next.js</span><span>88%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div>
-      </div>
-      <div class="skill-bar-item">
-        <div class="skill-bar-head"><span>Node.js / Express</span><span>85%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%"></div></div>
-      </div>
-    </div>
-    <div>
-      <div class="skill-bar-item">
-        <div class="skill-bar-head"><span>Python</span><span>80%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div>
-      </div>
-      <div class="skill-bar-item">
-        <div class="skill-bar-head"><span>PostgreSQL</span><span>78%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:78%"></div></div>
-      </div>
-      <div class="skill-bar-item">
-        <div class="skill-bar-head"><span>Docker / DevOps</span><span>72%</span></div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:72%"></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section class="projects" id="projects">
-  <div class="sec-header">
-    <div class="sec-num">04 — Work</div>
-    <h2 class="sec-title">Selected Projects</h2>
-  </div>
-  <div class="projects-grid">
-
-    <div class="project-card">
-      <div class="project-num">project_01</div>
-      <h3 class="project-title">Project Alpha</h3>
-      <p class="project-desc">A real-time collaborative tool that lets teams manage tasks with live sync, conflict resolution, and role-based access. Built for scale with 5,000+ concurrent users.</p>
-      <div class="project-stack">
-        <span class="project-tag">React</span>
-        <span class="project-tag">Node.js</span>
-        <span class="project-tag">WebSockets</span>
-        <span class="project-tag">Redis</span>
-      </div>
-      <div class="project-links">
-        <a href="https://project-alpha-demo.vercel.app" class="project-link" target="_blank" rel="noreferrer">Live</a>
-        <a href="https://github.com/dipanjanmaity890/project-alpha" class="project-link" target="_blank" rel="noreferrer">GitHub</a>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-num">project_02</div>
-      <h3 class="project-title">Data Pipeline</h3>
-      <p class="project-desc">An ETL pipeline processing 2M+ records daily. Features schema validation, error recovery, monitoring dashboard, and configurable transformations.</p>
-      <div class="project-stack">
-        <span class="project-tag">Python</span>
-        <span class="project-tag">FastAPI</span>
-        <span class="project-tag">PostgreSQL</span>
-        <span class="project-tag">Docker</span>
-      </div>
-      <div class="project-links">
-        <a href="https://project-alpha-docs.vercel.app" class="project-link" target="_blank" rel="noreferrer">Docs</a>
-        <a href="https://github.com/dipanjanmaity890/data-pipeline" class="project-link" target="_blank" rel="noreferrer">GitHub</a>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-num">project_03</div>
-      <h3 class="project-title">Dev CLI Tool</h3>
-      <p class="project-desc">A terminal utility for automating repetitive development workflows — scaffolding, environment setup, git hooks, and deployment scripts in one command.</p>
-      <div class="project-stack">
-        <span class="project-tag">TypeScript</span>
-        <span class="project-tag">Node.js</span>
-        <span class="project-tag">Shell</span>
-        <span class="project-tag">npm</span>
-      </div>
-      <div class="project-links">
-        <a href="https://www.npmjs.com/package/dev-cli-tool" class="project-link" target="_blank" rel="noreferrer">npm</a>
-        <a href="https://github.com/dipanjanmaity890/dev-cli-tool" class="project-link" target="_blank" rel="noreferrer">GitHub</a>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-num">project_04</div>
-      <h3 class="project-title">Auth Microservice</h3>
-      <p class="project-desc">JWT + OAuth2 authentication service with rate limiting, refresh token rotation, and audit logging. Drop-in module for any Node.js project.</p>
-      <div class="project-stack">
-        <span class="project-tag">Node.js</span>
-        <span class="project-tag">JWT</span>
-        <span class="project-tag">OAuth2</span>
-        <span class="project-tag">MongoDB</span>
-      </div>
-      <div class="project-links">
-        <a href="https://auth-microservice-demo.vercel.app" class="project-link" target="_blank" rel="noreferrer">Live</a>
-        <a href="https://github.com/dipanjanmaity890/auth-microservice" class="project-link" target="_blank" rel="noreferrer">GitHub</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section class="education" id="education">
-  <div class="sec-header">
-    <div class="sec-num">05 — Background</div>
-    <h2 class="sec-title">Education</h2>
-  </div>
-  <div class="edu-timeline">
-
-    <div class="edu-item">
-      <div class="edu-dot"></div>
-      <div class="edu-year">2020 — 2024</div>
-      <div class="edu-degree">B.E. Computer Science</div>
-      <div class="edu-school">Your University Name — Bengaluru, India</div>
-      <div class="edu-desc">Focused on data structures, algorithms, systems programming, and software engineering. Graduated with distinction. Final year project: distributed task scheduler using Go and etcd.</div>
-    </div>
-
-    <div class="edu-item">
-      <div class="edu-dot"></div>
-      <div class="edu-year">2023</div>
-      <div class="edu-degree">AWS Certified Developer – Associate</div>
-      <div class="edu-school">Amazon Web Services</div>
-      <div class="edu-desc">Earned certification in cloud architecture, serverless computing, CI/CD pipelines, and AWS service integration.</div>
-    </div>
-
-    <div class="edu-item">
-      <div class="edu-dot"></div>
-      <div class="edu-year">2022</div>
-      <div class="edu-degree">Full-Stack Web Development Bootcamp</div>
-      <div class="edu-school">Online / Self-Directed</div>
-      <div class="edu-desc">Intensive training in modern web stack: React, Node.js, databases, REST APIs, and deployment workflows.</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="contact-glow"></div>
-  <div class="contact-tag">06 — Contact</div>
-  <h2 class="contact-headline">Let's Build<br>Something.</h2>
-  <p class="contact-sub">
-    Got a project in mind, an open role, or just want to talk code?
-    My inbox is always open.
-  </p>
-  <div class="contact-links">
-    <a href="mailto:you@email.com" class="btn-primary">Send Email</a>
-    <a href="https://www.linkedin.com/in/your-linkedin-handle/" class="btn-outline" target="_blank" rel="noreferrer">LinkedIn</a>
-    <a href="https://github.com/dipanjanmaity890" class="btn-outline" target="_blank" rel="noreferrer">GitHub</a>
-  </div>
-  <form class="contact-form" onsubmit="return false">
-    <div class="form-row">
-      <div class="form-field"><input type="text" placeholder="Your Name" /></div>
-      <div class="form-field"><input type="email" placeholder="Your Email" /></div>
-    </div>
-    <div class="form-field"><input type="text" placeholder="Subject" /></div>
-    <div class="form-field"><textarea rows="5" placeholder="Tell me about your project..."></textarea></div>
-    <button class="form-submit" type="submit">Send Message</button>
-  </form>
 </section>
 
 <!-- FOOTER -->
