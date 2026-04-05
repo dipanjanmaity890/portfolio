@@ -337,6 +337,101 @@ section {
   padding: 3rem 4rem 7rem;
 }
 
+.particle-section {
+  padding: 2rem 4rem 4rem;
+}
+
+.particle-panel {
+  display: grid;
+  grid-template-columns: minmax(280px, 420px) 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.particle-copy p {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  color: var(--text2);
+  line-height: 1.9;
+  max-width: 34rem;
+}
+
+.particle-copy p + p {
+  margin-top: 1rem;
+}
+
+.particle-copy .highlight {
+  color: var(--accent2);
+}
+
+.particle-stage-card {
+  position: relative;
+  min-height: 540px;
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(circle at top right, rgba(99,210,255,0.12), transparent 28%),
+    radial-gradient(circle at 18% 22%, rgba(0,255,163,0.08), transparent 26%),
+    linear-gradient(180deg, rgba(22,29,39,0.94), rgba(8,11,16,0.96));
+  overflow: hidden;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 24px 60px rgba(0,0,0,0.28);
+}
+
+.particle-stage-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(99,210,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99,210,255,0.04) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.22));
+  pointer-events: none;
+}
+
+.particle-canvas {
+  width: 100%;
+  height: 540px;
+  display: block;
+}
+
+.particle-overlay {
+  position: absolute;
+  inset: auto 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  pointer-events: none;
+}
+
+.particle-kicker {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.particle-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.55rem;
+}
+
+.particle-chip-row span {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text2);
+  padding: 0.35rem 0.65rem;
+  border: 1px solid rgba(99,210,255,0.16);
+  background: rgba(8,11,16,0.48);
+}
+
 .page-preview-card {
   background: linear-gradient(180deg, rgba(22,29,39,0.92), rgba(13,17,23,0.92));
   border: 1px solid var(--border);
@@ -1178,12 +1273,43 @@ footer .footer-status {
   }
 
   .subpage-hero,
-  .page-preview {
+  .page-preview,
+  .particle-section {
     padding: 6rem 1.5rem 2rem;
   }
 
   .page-preview {
     padding-bottom: 5rem;
+  }
+
+  .particle-section {
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+  }
+
+  .particle-panel {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .particle-stage-card {
+    min-height: 440px;
+  }
+
+  .particle-canvas {
+    height: 440px;
+  }
+
+  .particle-overlay {
+    position: static;
+    padding: 0 1rem 1rem;
+    pointer-events: auto;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .particle-chip-row {
+    justify-content: flex-start;
   }
 
   .orbit-section {
