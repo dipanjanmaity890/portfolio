@@ -1,5 +1,6 @@
 const orbit = document.querySelector('[data-orbit]');
 const particleCanvas = document.querySelector('[data-particle-text]');
+const progressiveForm = document.querySelector('[data-progressive-form]');
 
 if (orbit) {
   const updateOrbit = () => {
@@ -223,6 +224,59 @@ if (particleCanvas) {
   window.addEventListener('beforeunload', () => {
     window.cancelAnimationFrame(animationFrameId);
   });
+}
+
+if (progressiveForm) {
+  const fields = Array.from(progressiveForm.querySelectorAll('[data-step-field]'));
+  const submitButton = progressiveForm.querySelector('.form-submit');
+
+  const hasValue = (field) => field.value.trim().length > 0;
+  const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+
+  const isFieldComplete = (field) => {
+    if (!hasValue(field)) {
+      return false;
+    }
+
+    if (field.type === 'email') {
+      return isValidEmail(field.value);
+    }
+
+    return true;
+  };
+
+  const updateProgressiveForm = () => {
+    let previousFieldsComplete = true;
+
+    fields.forEach((field, index) => {
+      if (index === 0) {
+        field.disabled = false;
+      } else {
+        field.disabled = !previousFieldsComplete;
+      }
+
+      if (field.disabled) {
+        field.value = '';
+      }
+
+      previousFieldsComplete = previousFieldsComplete && isFieldComplete(field);
+    });
+
+    if (submitButton) {
+      submitButton.disabled = !fields.every(isFieldComplete);
+    }
+  };
+
+  fields.forEach((field) => {
+    field.addEventListener('input', updateProgressiveForm);
+    field.addEventListener('blur', updateProgressiveForm);
+  });
+
+  progressiveForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+  });
+
+  updateProgressiveForm();
 }
 
 document.addEventListener('contextmenu', (event) => {

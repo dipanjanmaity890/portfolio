@@ -1183,6 +1183,46 @@ section {
   margin-bottom: 3rem;
 }
 
+.contact-email-bank {
+  max-width: 980px;
+  margin: 0 auto 3rem;
+  text-align: left;
+}
+
+.contact-email-bank-title {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 1rem;
+}
+
+.contact-email-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.contact-email-pill {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  color: var(--text2);
+  text-decoration: none;
+  padding: 0.7rem 0.95rem;
+  border: 1px solid var(--border);
+  background: rgba(22,29,39,0.8);
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  overflow-wrap: anywhere;
+}
+
+.contact-email-pill:hover {
+  color: var(--text);
+  border-color: var(--border2);
+  transform: translateY(-1px);
+}
+
 .contact-form {
   max-width: 560px;
   margin: 0 auto;
@@ -1212,6 +1252,14 @@ section {
   resize: vertical;
 }
 
+.form-field input:disabled,
+.form-field textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  border-color: rgba(99,210,255,0.08);
+  background: rgba(22,29,39,0.42);
+}
+
 .form-field input:focus,
 .form-field textarea:focus {
   border-color: var(--accent);
@@ -1239,6 +1287,11 @@ section {
 
 .form-submit:hover {
   opacity: 0.85;
+}
+
+.form-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
 }
 
 footer {
@@ -1517,6 +1570,18 @@ footer .footer-status {
     align-items: stretch;
   }
 
+  .contact-email-bank {
+    margin-bottom: 2.25rem;
+  }
+
+  .contact-email-bank-title {
+    text-align: center;
+  }
+
+  .contact-email-grid {
+    justify-content: stretch;
+  }
+
   .btn-primary,
   .btn-outline,
   .form-submit {
@@ -1679,6 +1744,13 @@ footer .footer-status {
 
   .contact-links {
     gap: 0.75rem;
+  }
+
+  .contact-email-pill {
+    width: 100%;
+    text-align: center;
+    font-size: 0.7rem;
+    padding: 0.7rem 0.75rem;
   }
 
   .form-field input,

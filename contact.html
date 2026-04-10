@@ -36,18 +36,33 @@
     My inbox is always open.
   </p>
   <div class="contact-links">
-    <a href="mailto:you@email.com" class="btn-primary">Send Email</a>
+    <a href="mailto:dipanjanmaity890@gmail.com" class="btn-primary">Send Email</a>
     <a href="https://www.linkedin.com/in/your-linkedin-handle/" class="btn-outline" target="_blank" rel="noreferrer">LinkedIn</a>
     <a href="https://github.com/dipanjanmaity890" class="btn-outline" target="_blank" rel="noreferrer">GitHub</a>
   </div>
-  <form class="contact-form" onsubmit="return false">
-    <div class="form-row">
-      <div class="form-field"><input type="text" placeholder="Your Name" /></div>
-      <div class="form-field"><input type="email" placeholder="Your Email" /></div>
+  <div class="contact-email-bank">
+    <div class="contact-email-bank-title">Email Extensions</div>
+    <div class="contact-email-grid">
+      <a class="contact-email-pill" href="mailto:dipanjanmaity890@gmail.com">dipanjanmaity890@gmail.com</a>
+      <a class="contact-email-pill" href="mailto:dipanjanmaity890@aol.com">dipanjanmaity890@aol.com</a>
+      <a class="contact-email-pill" href="mailto:dipanjanmaity890@yahoo.in">dipanjanmaity890@yahoo.in</a>
+      <a class="contact-email-pill" href="mailto:dipanjanmaity890@outlook.in">dipanjanmaity890@outlook.in</a>
+      <a class="contact-email-pill" href="mailto:dipanjanmaity890@icloud.com">dipanjanmaity890@icloud.com</a>
+      <a class="contact-email-pill" href="mailto:dipanjanmaity890@outlook.com">dipanjanmaity890@outlook.com</a>
+      <a class="contact-email-pill" href="mailto:dipanjanmaity890@yahoo.com">dipanjanmaity890@yahoo.com</a>
+      <a class="contact-email-pill" href="mailto:dipanjanmaity890@zoho.in">dipanjanmaity890@zoho.in</a>
+      <a class="contact-email-pill" href="mailto:dipanjanmaity890@rediffmail.com">dipanjanmaity890@rediffmail.com</a>
+      <a class="contact-email-pill" href="mailto:dipanjanmaity890@hotmail.com">dipanjanmaity890@hotmail.com</a>
     </div>
-    <div class="form-field"><input type="text" placeholder="Subject" /></div>
-    <div class="form-field"><textarea rows="5" placeholder="Tell me about your project..."></textarea></div>
-    <button class="form-submit" type="submit">Send Message</button>
+  </div>
+  <form class="contact-form" data-progressive-form onsubmit="return false">
+    <div class="form-row">
+      <div class="form-field"><input type="text" placeholder="Your Name" data-step-field /></div>
+      <div class="form-field"><input type="email" placeholder="Your Email" data-step-field disabled /></div>
+    </div>
+    <div class="form-field"><input type="text" placeholder="Subject" data-step-field disabled /></div>
+    <div class="form-field"><textarea rows="5" placeholder="Tell me about your project..." data-step-field disabled></textarea></div>
+    <button class="form-submit" type="submit" disabled>Send Message</button>
   </form>
 </section>
 
