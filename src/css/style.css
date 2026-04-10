@@ -1232,6 +1232,12 @@ section {
   gap: 1rem;
 }
 
+.contact-botcheck {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1292,6 +1298,21 @@ section {
 .form-submit:disabled {
   cursor: not-allowed;
   opacity: 0.45;
+}
+
+.contact-form-status {
+  min-height: 1.5rem;
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  color: var(--text2);
+}
+
+.contact-form-status.is-success {
+  color: var(--accent2);
+}
+
+.contact-form-status.is-error {
+  color: var(--accent3);
 }
 
 footer {

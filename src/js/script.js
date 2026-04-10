@@ -229,9 +229,23 @@ if (particleCanvas) {
 if (progressiveForm) {
   const fields = Array.from(progressiveForm.querySelectorAll('[data-step-field]'));
   const submitButton = progressiveForm.querySelector('.form-submit');
+  const statusMessage = progressiveForm.querySelector('[data-form-status]');
+  const accessKeyField = progressiveForm.querySelector('input[name="access_key"]');
 
   const hasValue = (field) => field.value.trim().length > 0;
   const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+  const setStatus = (message, type = '') => {
+    if (!statusMessage) {
+      return;
+    }
+
+    statusMessage.textContent = message;
+    statusMessage.classList.remove('is-success', 'is-error');
+
+    if (type) {
+      statusMessage.classList.add(type);
+    }
+  };
 
   const isFieldComplete = (field) => {
     if (!hasValue(field)) {
@@ -272,8 +286,51 @@ if (progressiveForm) {
     field.addEventListener('blur', updateProgressiveForm);
   });
 
-  progressiveForm.addEventListener('submit', (event) => {
+  progressiveForm.addEventListener('submit', async (event) => {
     event.preventDefault();
+
+    if (!fields.every(isFieldComplete)) {
+      setStatus('Complete all fields before sending.', 'is-error');
+      return;
+    }
+
+    if (!accessKeyField || accessKeyField.value === 'YOUR_WEB3FORMS_ACCESS_KEY') {
+      setStatus('Add your Web3Forms access key in the contact form before sending.', 'is-error');
+      return;
+    }
+
+    const originalButtonText = submitButton ? submitButton.textContent : '';
+    const formData = new FormData(progressiveForm);
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending...';
+    }
+
+    setStatus('Sending your message...', '');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Something went wrong while sending the message.');
+      }
+
+      progressiveForm.reset();
+      setStatus('Message sent successfully. Check your inbox for the new contact mail.', 'is-success');
+    } catch (error) {
+      setStatus(error.message || 'Failed to send the message.', 'is-error');
+    } finally {
+      if (submitButton) {
+        submitButton.textContent = originalButtonText;
+      }
+
+      updateProgressiveForm();
+    }
   });
 
   updateProgressiveForm();
