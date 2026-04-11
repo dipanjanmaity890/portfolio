@@ -1,6 +1,7 @@
 const orbit = document.querySelector('[data-orbit]');
 const particleCanvas = document.querySelector('[data-particle-text]');
 const progressiveForm = document.querySelector('[data-progressive-form]');
+const bookSliders = document.querySelectorAll('[data-book-slider]');
 
 if (orbit) {
   const updateOrbit = () => {
@@ -334,6 +335,172 @@ if (progressiveForm) {
   });
 
   updateProgressiveForm();
+}
+
+if (bookSliders.length) {
+  let audioContext;
+
+  const playPageFlipSound = () => {
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+
+    if (!AudioContextClass) {
+      return;
+    }
+
+    if (!audioContext) {
+      audioContext = new AudioContextClass();
+    }
+
+    if (audioContext.state === 'suspended') {
+      audioContext.resume();
+    }
+
+    const now = audioContext.currentTime;
+    const gain = audioContext.createGain();
+    const oscillator = audioContext.createOscillator();
+    const filter = audioContext.createBiquadFilter();
+
+    oscillator.type = 'triangle';
+    oscillator.frequency.setValueAtTime(340, now);
+    oscillator.frequency.exponentialRampToValueAtTime(120, now + 0.18);
+
+    filter.type = 'lowpass';
+    filter.frequency.setValueAtTime(1200, now);
+    filter.Q.value = 0.7;
+
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.exponentialRampToValueAtTime(0.045, now + 0.03);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.22);
+
+    oscillator.connect(filter);
+    filter.connect(gain);
+    gain.connect(audioContext.destination);
+
+    oscillator.start(now);
+    oscillator.stop(now + 0.24);
+  };
+
+  const isTypingContext = (element) => {
+    if (!element) {
+      return false;
+    }
+
+    const tagName = element.tagName;
+    return element.isContentEditable || tagName === 'INPUT' || tagName === 'TEXTAREA' || tagName === 'SELECT';
+  };
+
+  bookSliders.forEach((slider) => {
+    const pages = Array.from(slider.querySelectorAll('[data-book-page]'));
+    const prevButton = slider.querySelector('[data-book-prev]');
+    const nextButton = slider.querySelector('[data-book-next]');
+    const currentLabel = slider.querySelector('[data-book-current]');
+    const totalLabel = slider.querySelector('[data-book-total]');
+    let activeIndex = 0;
+
+    const renderBook = () => {
+      pages.forEach((page, index) => {
+        page.classList.remove('is-active', 'is-next', 'is-after', 'is-prev', 'is-hidden');
+
+        if (index === activeIndex) {
+          page.classList.add('is-active');
+        } else if (index === activeIndex + 1) {
+          page.classList.add('is-next');
+        } else if (index === activeIndex + 2) {
+          page.classList.add('is-after');
+        } else if (index < activeIndex) {
+          page.classList.add('is-prev');
+        } else {
+          page.classList.add('is-hidden');
+        }
+      });
+
+      if (currentLabel) {
+        currentLabel.textContent = String(activeIndex + 1);
+      }
+
+      if (totalLabel) {
+        totalLabel.textContent = String(pages.length);
+      }
+
+      if (prevButton) {
+        prevButton.disabled = activeIndex === 0;
+      }
+
+      if (nextButton) {
+        nextButton.disabled = activeIndex === pages.length - 1;
+      }
+    };
+
+    const goPrevious = () => {
+      if (activeIndex > 0) {
+        activeIndex -= 1;
+        renderBook();
+        playPageFlipSound();
+      }
+    };
+
+    const goNext = () => {
+      if (activeIndex < pages.length - 1) {
+        activeIndex += 1;
+        renderBook();
+        playPageFlipSound();
+      }
+    };
+
+    prevButton?.addEventListener('click', goPrevious);
+    nextButton?.addEventListener('click', goNext);
+
+    pages.forEach((page, index) => {
+      page.addEventListener('click', (event) => {
+        const rect = page.getBoundingClientRect();
+        const clickedLeftSide = event.clientX - rect.left < rect.width * 0.42;
+
+        if (index === activeIndex && !clickedLeftSide) {
+          goNext();
+          return;
+        }
+
+        if (index === activeIndex && clickedLeftSide) {
+          goPrevious();
+          return;
+        }
+
+        if (index < activeIndex) {
+          goPrevious();
+          return;
+        }
+
+        if (index > activeIndex) {
+          goNext();
+        }
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (isTypingContext(document.activeElement)) {
+        return;
+      }
+
+      const rect = slider.getBoundingClientRect();
+      const inView = rect.bottom > 120 && rect.top < window.innerHeight - 120;
+
+      if (!inView) {
+        return;
+      }
+
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        goPrevious();
+      }
+
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        goNext();
+      }
+    });
+
+    renderBook();
+  });
 }
 
 document.addEventListener('contextmenu', (event) => {

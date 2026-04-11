@@ -1079,6 +1079,223 @@ section {
   background: var(--bg2);
 }
 
+.book-showcase {
+  padding: 0 4rem 7rem;
+  background: var(--bg2);
+}
+
+.book-slider {
+  position: relative;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.book-slider-shell {
+  position: relative;
+  min-height: 520px;
+  perspective: 1800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  isolation: isolate;
+}
+
+.book-slider-shell::before {
+  content: '';
+  position: absolute;
+  inset: 28px auto 28px 50%;
+  width: 26px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.24), rgba(10,16,26,0.6) 28%, rgba(255,255,255,0.18) 52%, rgba(10,16,26,0.72));
+  box-shadow:
+    0 0 24px rgba(0,0,0,0.26),
+    inset 0 0 12px rgba(255,255,255,0.14);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.book-slider-shell::after {
+  content: '';
+  position: absolute;
+  inset: auto 6% -14px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,0,0,0.34), transparent 72%);
+  filter: blur(14px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.book-page {
+  position: absolute;
+  width: min(100%, 720px);
+  min-height: 440px;
+  padding: 2.4rem 2.4rem 2.8rem;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background:
+    linear-gradient(135deg, rgba(252,253,255,0.96), rgba(227,236,247,0.92)),
+    linear-gradient(180deg, rgba(22,29,39,0.9), rgba(13,17,23,0.9));
+  color: #10233d;
+  box-shadow:
+    0 28px 70px rgba(0,0,0,0.32),
+    inset 0 1px 0 rgba(255,255,255,0.58);
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition: transform 0.85s cubic-bezier(0.22, 0.8, 0.2, 1), opacity 0.5s ease, filter 0.5s ease, box-shadow 0.5s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.book-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(16,35,61,0.08), transparent 16%, transparent 84%, rgba(16,35,61,0.06)),
+    repeating-linear-gradient(180deg, transparent, transparent 31px, rgba(16,35,61,0.06) 31px, rgba(16,35,61,0.06) 32px);
+  pointer-events: none;
+}
+
+.book-page::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.22), transparent 18%, transparent 80%, rgba(255,255,255,0.22));
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+}
+
+.book-page > * {
+  pointer-events: none;
+}
+
+.book-page-num {
+  position: relative;
+  display: inline-flex;
+  margin-bottom: 1rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #305b91;
+}
+
+.book-page h3,
+.book-page p {
+  position: relative;
+  z-index: 1;
+}
+
+.book-page h3 {
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  line-height: 1.06;
+  margin-bottom: 1rem;
+}
+
+.book-page p {
+  max-width: 30rem;
+  font-family: var(--mono);
+  font-size: 0.92rem;
+  line-height: 1.9;
+  color: #365272;
+}
+
+.book-page.is-active {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0) rotateY(0deg) scale(1);
+  z-index: 20;
+}
+
+.book-page.is-active::after {
+  opacity: 0.22;
+}
+
+.book-page.is-next {
+  opacity: 0.98;
+  filter: blur(0);
+  transform: translateX(10px) rotateY(-7deg) scale(0.996);
+  z-index: 18;
+}
+
+.book-page.is-next::after {
+  opacity: 0.12;
+}
+
+.book-page.is-after {
+  opacity: 0.94;
+  filter: blur(0);
+  transform: translateX(18px) rotateY(-11deg) scale(0.992);
+  z-index: 16;
+}
+
+.book-page.is-prev {
+  opacity: 0.98;
+  filter: blur(0);
+  transform: translateX(-12px) rotateY(-174deg) scale(1);
+  z-index: 10;
+  box-shadow:
+    -10px 22px 45px rgba(0,0,0,0.24),
+    inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.book-page.is-prev::after {
+  opacity: 0.34;
+}
+
+.book-page.is-hidden {
+  opacity: 0.92;
+  pointer-events: none;
+  transform: translateX(24px) rotateY(-14deg) scale(0.99);
+  z-index: 14;
+}
+
+.book-slider-controls {
+  margin-top: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.book-slider-btn {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text);
+  background: rgba(22,29,39,0.9);
+  border: 1px solid var(--border2);
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, opacity 0.2s;
+}
+
+.book-slider-btn:hover {
+  background: rgba(99,210,255,0.08);
+  transform: translateY(-1px);
+}
+
+.book-slider-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.book-slider-status {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text2);
+}
+
 .cert-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -1407,6 +1624,7 @@ footer .footer-status {
   .skills,
   .projects,
   .education,
+  .book-showcase,
   .education-certificates,
   .contact {
     padding: 5rem 1.5rem;
@@ -1560,6 +1778,23 @@ footer .footer-status {
     min-height: 360px;
   }
 
+  .book-slider-shell {
+    min-height: 460px;
+  }
+
+  .book-page {
+    min-height: 390px;
+    padding: 1.7rem 1.5rem 2.1rem;
+  }
+
+  .book-page.is-next {
+    transform: translateX(8px) rotateY(-6deg) scale(0.996);
+  }
+
+  .book-page.is-after {
+    transform: translateX(14px) rotateY(-9deg) scale(0.992);
+  }
+
   .orbit-visual {
     --orbit-size: min(92vw, 380px);
     min-height: 430px;
@@ -1648,6 +1883,7 @@ footer .footer-status {
   .skills,
   .projects,
   .education,
+  .book-showcase,
   .education-certificates,
   .contact,
   .subpage-hero,
@@ -1716,6 +1952,49 @@ footer .footer-status {
   .particle-canvas {
     height: 290px;
     min-height: 290px;
+  }
+
+  .book-slider-shell {
+    min-height: 390px;
+  }
+
+  .book-page {
+    min-height: 320px;
+    padding: 1.2rem 1rem 1.5rem;
+    border-radius: 18px;
+  }
+
+  .book-page h3 {
+    font-size: 1.35rem;
+  }
+
+  .book-page p {
+    font-size: 0.78rem;
+    line-height: 1.65;
+  }
+
+  .book-page.is-next,
+  .book-page.is-after {
+    transform: translateX(10px) rotateY(-7deg) scale(0.992);
+  }
+
+  .book-page.is-prev {
+    transform: translateX(-10px) rotateY(-172deg) scale(0.99);
+  }
+
+  .book-slider-controls {
+    gap: 0.75rem;
+  }
+
+  .book-slider-btn {
+    width: calc(50% - 0.4rem);
+    text-align: center;
+    padding: 0.72rem 0.6rem;
+  }
+
+  .book-slider-status {
+    width: 100%;
+    text-align: center;
   }
 
   .particle-overlay {
@@ -1799,6 +2078,7 @@ footer .footer-status {
   .skills,
   .projects,
   .education,
+  .book-showcase,
   .education-certificates,
   .contact,
   .subpage-hero,
@@ -1820,6 +2100,24 @@ footer .footer-status {
   .particle-canvas {
     height: 220px;
     min-height: 220px;
+  }
+
+  .book-slider-shell {
+    min-height: 320px;
+  }
+
+  .book-page {
+    min-height: 270px;
+    padding: 0.95rem 0.8rem 1.2rem;
+  }
+
+  .book-page h3 {
+    font-size: 1.08rem;
+  }
+
+  .book-page p {
+    font-size: 0.7rem;
+    line-height: 1.55;
   }
 
   .orbit-visual {
