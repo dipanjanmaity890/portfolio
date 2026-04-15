@@ -29,7 +29,6 @@ if (particleCanvas) {
   const offscreenCanvas = document.createElement('canvas');
   const offscreenContext = offscreenCanvas.getContext('2d', { willReadFrequently: true });
   const config = {
-    dwellFrames: 220,
     changeThreshold: 100,
     particleSize: 2.2,
     idleJitter: 0.12
@@ -159,14 +158,11 @@ if (particleCanvas) {
 
   const drawFrame = () => {
     frame += 1;
+    const phaseIndex = Math.floor(frame / config.changeThreshold) % words.length;
 
-    if (frame > config.dwellFrames && frame % config.changeThreshold === 0) {
-      wordIndex = (wordIndex + 1) % words.length;
+    if (phaseIndex !== wordIndex) {
+      wordIndex = phaseIndex;
       applyTargets(words[wordIndex]);
-    }
-
-    if (frame > config.dwellFrames + config.changeThreshold * words.length) {
-      frame = config.dwellFrames;
     }
 
     context.clearRect(0, 0, width, height);
