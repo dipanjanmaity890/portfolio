@@ -1059,6 +1059,78 @@ section {
   margin-bottom: 0.25rem;
 }
 
+.logo-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 0.9rem 0 0.85rem;
+}
+
+.logo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.38rem 0.62rem 0.38rem 0.42rem;
+  border: 1px solid rgba(99,210,255,0.16);
+  background: rgba(22,29,39,0.82);
+  border-radius: 999px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+.logo-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #fff;
+  text-transform: uppercase;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.18),
+    0 6px 14px rgba(0,0,0,0.16);
+}
+
+.logo-name {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text2);
+}
+
+.logo-mark--jnv {
+  background: linear-gradient(135deg, #0f9f4f, #1e6a35);
+}
+
+.logo-mark--cbse {
+  background: linear-gradient(135deg, #1f5eb6, #12346d);
+}
+
+.logo-mark--pmshri {
+  background: linear-gradient(135deg, #ef8c1f, #ce5d00);
+}
+
+.logo-mark--pwi {
+  background: linear-gradient(135deg, #ffb703, #e77c00);
+  color: #1b1404;
+}
+
+.logo-mark--msu {
+  background: linear-gradient(135deg, #6527be, #3f1780);
+}
+
+.logo-mark--ncc {
+  background: linear-gradient(135deg, #b11319, #681014);
+}
+
+.logo-mark--scout {
+  background: linear-gradient(135deg, #1d8b69, #16664d);
+}
+
 .edu-school {
   font-family: var(--mono);
   font-size: 0.85rem;
@@ -1203,6 +1275,10 @@ section {
   font-size: 0.92rem;
   line-height: 1.9;
   color: #365272;
+}
+
+.book-page .logo-strip {
+  margin-top: 0.1rem;
 }
 
 .book-page.is-active {
@@ -1869,6 +1945,10 @@ footer .footer-status {
     gap: 0.75rem;
     flex-wrap: wrap;
   }
+
+  .logo-strip {
+    gap: 0.55rem;
+  }
 }
 
 @media (max-width: 420px) {
@@ -2018,6 +2098,21 @@ footer .footer-status {
   .project-tag {
     font-size: 0.66rem;
     padding: 0.28rem 0.5rem;
+  }
+
+  .logo-badge {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .logo-mark {
+    width: 30px;
+    height: 30px;
+    font-size: 0.62rem;
+  }
+
+  .logo-name {
+    font-size: 0.62rem;
   }
 
   .orbit-visual {
