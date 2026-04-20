@@ -2,6 +2,137 @@ const orbit = document.querySelector('[data-orbit]');
 const particleCanvas = document.querySelector('[data-particle-text]');
 const progressiveForm = document.querySelector('[data-progressive-form]');
 const bookSliders = document.querySelectorAll('[data-book-slider]');
+const transitionOverlay = document.createElement('div');
+
+transitionOverlay.className = 'page-transition';
+transitionOverlay.setAttribute('aria-hidden', 'true');
+transitionOverlay.innerHTML = '<div class="page-transition-track"></div>';
+document.body.appendChild(transitionOverlay);
+
+const isModifiedNavigation = (event) => event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
+const isSamePageLink = (url) => url.pathname === window.location.pathname && url.hash;
+
+let pageTransitionAudio;
+let pageTransitionStarted = false;
+
+const getPageTransitionAudio = async () => {
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+
+  if (!AudioContextClass) {
+    return null;
+  }
+
+  if (!pageTransitionAudio) {
+    pageTransitionAudio = new AudioContextClass();
+  }
+
+  if (pageTransitionAudio.state === 'suspended') {
+    try {
+      await pageTransitionAudio.resume();
+    } catch (error) {
+      return null;
+    }
+  }
+
+  return pageTransitionAudio.state === 'running' ? pageTransitionAudio : null;
+};
+
+const playPageTransitionSound = async () => {
+  const context = await getPageTransitionAudio();
+
+  if (!context) {
+    return;
+  }
+
+  const now = context.currentTime;
+  const gain = context.createGain();
+  const oscillator = context.createOscillator();
+  const filter = context.createBiquadFilter();
+
+  oscillator.type = 'sawtooth';
+  oscillator.frequency.setValueAtTime(250, now);
+  oscillator.frequency.exponentialRampToValueAtTime(760, now + 0.12);
+  oscillator.frequency.exponentialRampToValueAtTime(420, now + 0.34);
+
+  filter.type = 'bandpass';
+  filter.frequency.setValueAtTime(900, now);
+  filter.frequency.exponentialRampToValueAtTime(2100, now + 0.18);
+  filter.Q.value = 0.95;
+
+  gain.gain.setValueAtTime(0.0001, now);
+  gain.gain.exponentialRampToValueAtTime(0.03, now + 0.04);
+  gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.34);
+
+  oscillator.connect(filter);
+  filter.connect(gain);
+  gain.connect(context.destination);
+
+  oscillator.start(now);
+  oscillator.stop(now + 0.36);
+};
+
+const startPageTransition = (href) => {
+  if (pageTransitionStarted) {
+    return;
+  }
+
+  pageTransitionStarted = true;
+  document.body.classList.add('is-page-transitioning');
+  transitionOverlay.classList.remove('is-active');
+  void transitionOverlay.offsetWidth;
+  transitionOverlay.classList.add('is-active');
+  void playPageTransitionSound();
+
+  window.setTimeout(() => {
+    window.location.href = href;
+  }, 520);
+};
+
+const warmPageTransitionAudio = () => {
+  void getPageTransitionAudio();
+};
+
+document.addEventListener('pointerdown', warmPageTransitionAudio, { passive: true });
+document.addEventListener('keydown', warmPageTransitionAudio);
+
+window.addEventListener('pageshow', () => {
+  pageTransitionStarted = false;
+  document.body.classList.remove('is-page-transitioning');
+  transitionOverlay.classList.remove('is-active');
+});
+
+document.addEventListener('click', (event) => {
+  const link = event.target.closest('a[href]');
+
+  if (!link) {
+    return;
+  }
+
+  if (link.hasAttribute('download') || link.target === '_blank' || isModifiedNavigation(event)) {
+    return;
+  }
+
+  const href = link.getAttribute('href');
+
+  if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) {
+    return;
+  }
+
+  let url;
+
+  try {
+    url = new URL(link.href, window.location.href);
+  } catch (error) {
+    return;
+  }
+
+  if (url.origin !== window.location.origin || isSamePageLink(url)) {
+    return;
+  }
+
+  event.preventDefault();
+  startPageTransition(url.href);
+});
 
 if (orbit) {
   const updateOrbit = () => {
@@ -335,12 +466,13 @@ if (progressiveForm) {
 
 if (bookSliders.length) {
   let audioContext;
+  let audioEnabled = false;
 
-  const playPageFlipSound = () => {
+  const getAudioContext = async () => {
     const AudioContextClass = window.AudioContext || window.webkitAudioContext;
 
     if (!AudioContextClass) {
-      return;
+      return null;
     }
 
     if (!audioContext) {
@@ -348,13 +480,38 @@ if (bookSliders.length) {
     }
 
     if (audioContext.state === 'suspended') {
-      audioContext.resume();
+      try {
+        await audioContext.resume();
+      } catch (error) {
+        return null;
+      }
     }
 
-    const now = audioContext.currentTime;
-    const gain = audioContext.createGain();
-    const oscillator = audioContext.createOscillator();
-    const filter = audioContext.createBiquadFilter();
+    audioEnabled = audioContext.state === 'running';
+    return audioEnabled ? audioContext : null;
+  };
+
+  const warmFlipAudio = async () => {
+    const context = await getAudioContext();
+
+    if (!context) {
+      return false;
+    }
+
+    return true;
+  };
+
+  const playPageFlipSound = async () => {
+    const context = await getAudioContext();
+
+    if (!context) {
+      return;
+    }
+
+    const now = context.currentTime;
+    const gain = context.createGain();
+    const oscillator = context.createOscillator();
+    const filter = context.createBiquadFilter();
 
     oscillator.type = 'triangle';
     oscillator.frequency.setValueAtTime(340, now);
@@ -370,7 +527,7 @@ if (bookSliders.length) {
 
     oscillator.connect(filter);
     filter.connect(gain);
-    gain.connect(audioContext.destination);
+    gain.connect(context.destination);
 
     oscillator.start(now);
     oscillator.stop(now + 0.24);
@@ -384,6 +541,17 @@ if (bookSliders.length) {
     const tagName = element.tagName;
     return element.isContentEditable || tagName === 'INPUT' || tagName === 'TEXTAREA' || tagName === 'SELECT';
   };
+
+  const primeAudioFromInteraction = () => {
+    if (audioEnabled) {
+      return;
+    }
+
+    warmFlipAudio();
+  };
+
+  document.addEventListener('pointerdown', primeAudioFromInteraction, { passive: true });
+  document.addEventListener('keydown', primeAudioFromInteraction);
 
   bookSliders.forEach((slider) => {
     const pages = Array.from(slider.querySelectorAll('[data-book-page]'));
@@ -431,7 +599,7 @@ if (bookSliders.length) {
       if (activeIndex > 0) {
         activeIndex -= 1;
         renderBook();
-        playPageFlipSound();
+        void playPageFlipSound();
       }
     };
 
@@ -439,7 +607,7 @@ if (bookSliders.length) {
       if (activeIndex < pages.length - 1) {
         activeIndex += 1;
         renderBook();
-        playPageFlipSound();
+        void playPageFlipSound();
       }
     };
 
