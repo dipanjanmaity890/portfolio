@@ -1197,20 +1197,16 @@ section {
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
 }
 
-.logo-mark {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  display: inline-grid;
-  place-items: center;
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #fff;
-  text-transform: uppercase;
+.logo-image {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.96);
+  padding: 0.24rem;
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.88),
     0 6px 14px rgba(0,0,0,0.16);
 }
 
@@ -1220,35 +1216,6 @@ section {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text2);
-}
-
-.logo-mark--jnv {
-  background: linear-gradient(135deg, #0f9f4f, #1e6a35);
-}
-
-.logo-mark--cbse {
-  background: linear-gradient(135deg, #1f5eb6, #12346d);
-}
-
-.logo-mark--pmshri {
-  background: linear-gradient(135deg, #ef8c1f, #ce5d00);
-}
-
-.logo-mark--pwi {
-  background: linear-gradient(135deg, #ffb703, #e77c00);
-  color: #1b1404;
-}
-
-.logo-mark--msu {
-  background: linear-gradient(135deg, #6527be, #3f1780);
-}
-
-.logo-mark--ncc {
-  background: linear-gradient(135deg, #b11319, #681014);
-}
-
-.logo-mark--scout {
-  background: linear-gradient(135deg, #1d8b69, #16664d);
 }
 
 .edu-school {
@@ -2225,10 +2192,9 @@ footer .footer-status {
     justify-content: flex-start;
   }
 
-  .logo-mark {
-    width: 30px;
-    height: 30px;
-    font-size: 0.62rem;
+  .logo-image {
+    width: 34px;
+    height: 34px;
   }
 
   .logo-name {
