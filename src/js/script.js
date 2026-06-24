@@ -697,7 +697,7 @@ document.addEventListener('keydown', (event) => {
 });
 
 // Fetch and render Google Developer Badges
-document.addEventListener('DOMContentLoaded', () => {
+const initBadges = () => {
   const container = document.getElementById('gdev-badges-container');
   if (container) {
     fetch('./public/badges.json')
@@ -735,4 +735,10 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = '<p style="color: rgba(255,255,255,0.5);">Failed to load badges.</p>';
       });
   }
-});
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initBadges);
+} else {
+  initBadges();
+}
