@@ -721,12 +721,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!document.getElementById('badge-animation-styles')) {
           const style = document.createElement('style');
           style.id = 'badge-animation-styles';
-          style.innerHTML = \`
+          style.innerHTML = `
             @keyframes badgeFadeIn {
               from { opacity: 0; transform: translateY(20px); }
               to { opacity: 1; transform: translateY(0); }
             }
-          \`;
+          `;
           document.head.appendChild(style);
         }
       })
