@@ -695,3 +695,44 @@ document.addEventListener('keydown', (event) => {
     event.preventDefault();
   }
 });
+
+// Fetch and render Google Developer Badges
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('gdev-badges-container');
+  if (container) {
+    fetch('./public/badges.json')
+      .then(response => {
+        if (!response.ok) throw new Error('Badges file not found');
+        return response.json();
+      })
+      .then(badges => {
+        if (badges.length === 0) {
+          container.innerHTML = '<p style="color: rgba(255,255,255,0.5);">No badges found yet. Check back soon!</p>';
+          return;
+        }
+        
+        container.innerHTML = badges.map((badge, index) => `
+          <div class="gdev-badge-item" style="opacity: 0; animation: badgeFadeIn 0.5s ease forwards ${index * 0.1}s; transition: transform 0.3s ease, filter 0.3s ease;">
+            <img src="${badge.src}" alt="${badge.alt}" title="${badge.alt}" style="width: 80px; height: 80px; object-fit: contain; filter: drop-shadow(0 0 10px rgba(66, 133, 244, 0.3));" onmouseover="this.style.transform='scale(1.1)'; this.style.filter='drop-shadow(0 0 15px rgba(66, 133, 244, 0.6))'" onmouseout="this.style.transform='scale(1)'; this.style.filter='drop-shadow(0 0 10px rgba(66, 133, 244, 0.3))'"/>
+          </div>
+        `).join('');
+
+        // Add keyframes for animation
+        if (!document.getElementById('badge-animation-styles')) {
+          const style = document.createElement('style');
+          style.id = 'badge-animation-styles';
+          style.innerHTML = \`
+            @keyframes badgeFadeIn {
+              from { opacity: 0; transform: translateY(20px); }
+              to { opacity: 1; transform: translateY(0); }
+            }
+          \`;
+          document.head.appendChild(style);
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching badges:', error);
+        container.innerHTML = '<p style="color: rgba(255,255,255,0.5);">Failed to load badges.</p>';
+      });
+  }
+});
