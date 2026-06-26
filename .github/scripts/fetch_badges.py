@@ -9,7 +9,13 @@ async def main():
         browser = await p.chromium.launch(headless=True)
         page = await browser.new_page()
         print("Navigating to g.dev/DIPANJANMAITY...")
-        await page.goto("https://g.dev/DIPANJANMAITY", wait_until="networkidle")
+        await page.goto("https://g.dev/DIPANJANMAITY", wait_until="domcontentloaded")
+        # Wait specifically for the first badge image to appear, or timeout after 10s
+        try:
+            await page.wait_for_selector("img[src*='badge']", timeout=10000)
+        except Exception:
+            print("Warning: Timed out waiting for badge selector, proceeding to extract anyway...")
+            await page.wait_for_timeout(3000)
         
         # Extract badges
         print("Extracting badges...")
