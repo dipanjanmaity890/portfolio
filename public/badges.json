@@ -1,5 +1,9 @@
 [
   {
+    "src": "https://developers.google.com/static/profile/badges/recognitions/learnings/learnings.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
     "src": "https://developers.google.com/static/profile/badges/community/gdg/member/badge.svg",
     "alt": "Google Developer Badge"
   },
@@ -13,10 +17,6 @@
   },
   {
     "src": "https://developers.google.com/static/profile/badges/playlists/accelerated-machine-learning-with-google-cloud-and-nvidia/badge.svg",
-    "alt": "Google Developer Badge"
-  },
-  {
-    "src": "https://developers.google.com/static/profile/badges/recognitions/learnings/learnings.svg",
     "alt": "Google Developer Badge"
   },
   {
