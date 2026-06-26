@@ -351,7 +351,6 @@ section {
   line-height: 0.92;
   letter-spacing: -0.03em;
   margin-bottom: 1.35rem;
-  overflow-wrap: anywhere;
 }
 
 .hero-name .line1 {
@@ -2300,7 +2299,7 @@ footer .footer-status {
   }
 
   .hero-name {
-    font-size: clamp(2.35rem, 17vw, 3.3rem);
+    font-size: clamp(1.8rem, 12vw, 2.8rem);
   }
 
   .subpage-title,
@@ -2548,7 +2547,7 @@ footer .footer-status {
   .hero-name,
   .subpage-title,
   .contact-headline {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
   }
 
   .particle-stage-card,
