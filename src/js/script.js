@@ -742,3 +742,33 @@ if (document.readyState === 'loading') {
 } else {
   initBadges();
 }
+
+// Mobile Menu Toggle Logic
+document.addEventListener('DOMContentLoaded', () => {
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const navLinks = document.getElementById('nav-links');
+
+  if (menuBtn && navLinks) {
+    menuBtn.addEventListener('click', () => {
+      const isActive = navLinks.classList.toggle('active');
+      menuBtn.classList.toggle('active');
+      
+      // Prevent body scrolling when menu is open
+      if (isActive) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Close menu when clicking any link
+    const links = navLinks.querySelectorAll('a');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuBtn.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+});
