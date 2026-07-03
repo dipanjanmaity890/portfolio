@@ -1,14 +1,14 @@
 [
   {
+    "src": "https://developers.google.com/static/profile/badges/community/gdg/chapter/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
     "src": "https://developers.google.com/static/profile/badges/recognitions/learnings/learnings.svg",
     "alt": "Google Developer Badge"
   },
   {
     "src": "https://developers.google.com/static/profile/badges/community/gdg/member/badge.svg",
-    "alt": "Google Developer Badge"
-  },
-  {
-    "src": "https://developers.google.com/static/profile/badges/community/gdg/chapter/badge.svg",
     "alt": "Google Developer Badge"
   },
   {
@@ -25,10 +25,6 @@
   },
   {
     "src": "https://developers.google.com/static/profile/badges/community/sdlcagents/gca-agents/badge.svg",
-    "alt": "Google Developer Badge"
-  },
-  {
-    "src": "https://developers.google.com/static/profile/badges/community/innovators/maps/badge.svg",
     "alt": "Google Developer Badge"
   }
 ]
