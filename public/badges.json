@@ -1,5 +1,9 @@
 [
   {
+    "src": "https://developers.google.com/static/profile/badges/community/other-programs/ai-day-for-startups/2026/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
     "src": "https://developers.google.com/static/profile/badges/community/gdg/chapter/badge.svg",
     "alt": "Google Developer Badge"
   },
@@ -21,10 +25,6 @@
   },
   {
     "src": "https://developers.google.com/static/profile/badges/playlists/first-playlist/badge.svg",
-    "alt": "Google Developer Badge"
-  },
-  {
-    "src": "https://developers.google.com/static/profile/badges/community/sdlcagents/gca-agents/badge.svg",
     "alt": "Google Developer Badge"
   }
 ]
