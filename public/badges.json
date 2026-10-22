@@ -1,14 +1,14 @@
 [
   {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/community/gdg/chapter/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
     "src": "https://www.gstatic.com/googledevelopers/profile/badges/community/get-certified-26-edition-3/badge.svg",
     "alt": "Google Developer Badge"
   },
   {
     "src": "https://www.gstatic.com/googledevelopers/profile/badges/community/other-programs/ai-day-for-startups/2026/badge.svg",
-    "alt": "Google Developer Badge"
-  },
-  {
-    "src": "https://www.gstatic.com/googledevelopers/profile/badges/community/gdg/chapter/badge.svg",
     "alt": "Google Developer Badge"
   },
   {
@@ -25,10 +25,6 @@
   },
   {
     "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/accelerated-machine-learning-with-google-cloud-and-nvidia/badge.svg",
-    "alt": "Google Developer Badge"
-  },
-  {
-    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/first-playlist/badge.svg",
     "alt": "Google Developer Badge"
   }
 ]
