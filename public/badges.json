@@ -26,5 +26,21 @@
   {
     "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/accelerated-machine-learning-with-google-cloud-and-nvidia/badge.svg",
     "alt": "Google Developer Badge"
+  },
+  {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/first-playlist/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/community/sdlcagents/gca-agents/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/community/innovators/maps/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/community/innovators/cloud/innovators_plus/badge.svg",
+    "alt": "Google Developer Badge"
   }
 ]
