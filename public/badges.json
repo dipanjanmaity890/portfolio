@@ -1,5 +1,9 @@
 [
   {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/community/flutter/flutter-dev/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
     "src": "https://www.gstatic.com/googledevelopers/profile/badges/community/gdg/chapter/badge.svg",
     "alt": "Google Developer Badge"
   },
@@ -37,10 +41,6 @@
   },
   {
     "src": "https://www.gstatic.com/googledevelopers/profile/badges/community/innovators/maps/badge.svg",
-    "alt": "Google Developer Badge"
-  },
-  {
-    "src": "https://www.gstatic.com/googledevelopers/profile/badges/community/innovators/cloud/innovators_plus/badge.svg",
     "alt": "Google Developer Badge"
   }
 ]
