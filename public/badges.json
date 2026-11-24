@@ -1,46 +1,66 @@
 [
   {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/androidify/action/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/androidify/quiz/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/androidify/learn/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/androidify/complete/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/androidify/view/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/race-condition/action/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/race-condition/quiz/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/race-condition/learn/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/race-condition/complete/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/race-condition/view/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/antigravity-arcade/quiz/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/antigravity-arcade/action/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/antigravity-arcade/learn/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/antigravity-arcade/complete/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/antigravity-arcade/view/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
     "src": "https://www.gstatic.com/googledevelopers/profile/badges/community/flutter/flutter-dev/badge.svg",
-    "alt": "Google Developer Badge"
-  },
-  {
-    "src": "https://www.gstatic.com/googledevelopers/profile/badges/community/gdg/chapter/badge.svg",
-    "alt": "Google Developer Badge"
-  },
-  {
-    "src": "https://www.gstatic.com/googledevelopers/profile/badges/community/get-certified-26-edition-3/badge.svg",
-    "alt": "Google Developer Badge"
-  },
-  {
-    "src": "https://www.gstatic.com/googledevelopers/profile/badges/community/other-programs/ai-day-for-startups/2026/badge.svg",
-    "alt": "Google Developer Badge"
-  },
-  {
-    "src": "https://www.gstatic.com/googledevelopers/profile/badges/recognitions/learnings/learnings.svg",
-    "alt": "Google Developer Badge"
-  },
-  {
-    "src": "https://www.gstatic.com/googledevelopers/profile/badges/community/gdg/member/badge.svg",
-    "alt": "Google Developer Badge"
-  },
-  {
-    "src": "https://www.gstatic.com/googledevelopers/profile/badges/skillsboost/earned-badge/badge.svg",
-    "alt": "Google Developer Badge"
-  },
-  {
-    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/accelerated-machine-learning-with-google-cloud-and-nvidia/badge.svg",
-    "alt": "Google Developer Badge"
-  },
-  {
-    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/first-playlist/badge.svg",
-    "alt": "Google Developer Badge"
-  },
-  {
-    "src": "https://www.gstatic.com/googledevelopers/profile/badges/community/sdlcagents/gca-agents/badge.svg",
-    "alt": "Google Developer Badge"
-  },
-  {
-    "src": "https://www.gstatic.com/googledevelopers/profile/badges/community/innovators/maps/badge.svg",
     "alt": "Google Developer Badge"
   }
 ]
