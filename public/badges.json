@@ -1,5 +1,25 @@
 [
   {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/aiventure/action/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/aiventure/quiz/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/aiventure/learn/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/aiventure/complete/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
+    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/aiventure/view/badge.svg",
+    "alt": "Google Developer Badge"
+  },
+  {
     "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/androidify/action/badge.svg",
     "alt": "Google Developer Badge"
   },
@@ -41,26 +61,6 @@
   },
   {
     "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/antigravity-arcade/quiz/badge.svg",
-    "alt": "Google Developer Badge"
-  },
-  {
-    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/antigravity-arcade/action/badge.svg",
-    "alt": "Google Developer Badge"
-  },
-  {
-    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/antigravity-arcade/learn/badge.svg",
-    "alt": "Google Developer Badge"
-  },
-  {
-    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/antigravity-arcade/complete/badge.svg",
-    "alt": "Google Developer Badge"
-  },
-  {
-    "src": "https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/antigravity-arcade/view/badge.svg",
-    "alt": "Google Developer Badge"
-  },
-  {
-    "src": "https://www.gstatic.com/googledevelopers/profile/badges/community/flutter/flutter-dev/badge.svg",
     "alt": "Google Developer Badge"
   }
 ]
